@@ -1,11 +1,13 @@
 <template>
   <div class="container">
-    <component
-      :is="screens[position]"
-      :question="question"
-      @goto="handleGoto"
-      @question="handleQuestion"
-    />
+    <transition name="fade" appear mode="out-in">
+      <component
+        :is="screens[position]"
+        :question="question"
+        @goto="handleGoto"
+        @question="handleQuestion"
+      />
+    </transition>
   </div>
 </template>
 
@@ -40,4 +42,23 @@ export default {
 
 <style>
 @import "./assets/style.css";
+.fade-enter-from {
+  opacity: 0;
+}
+.fade-enter-active {
+  transition: 0.5s;
+}
+.fade-enter-to {
+  opacity: 1;
+}
+
+.fade-leave-from {
+  opacity: 1;
+}
+.fade-leave-active {
+  transition: 0.5s;
+}
+.fade-leave-to {
+  opacity: 0;
+}
 </style>
