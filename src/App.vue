@@ -2,6 +2,7 @@
   <div class="container">
     <component
       :is="screens[position]"
+      :question="question"
       @goto="handleGoto"
       @question="handleQuestion"
     />
