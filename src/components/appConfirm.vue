@@ -1,3 +1,5 @@
-<template>appConfirm</template>
+<template>
+  <div>Confirm</div>
+</template>
 
 <script></script>

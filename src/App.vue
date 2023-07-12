@@ -1,6 +1,10 @@
 <template>
   <div class="container">
-    <component :is="screens[position]" />
+    <component
+      :is="screens[position]"
+      @goto="handleGoto"
+      @question="handleQuestion"
+    />
   </div>
 </template>
 
@@ -19,7 +23,16 @@ export default {
     return {
       screens: ["appInitial", "appConfirm", "appResult"],
       position: 0,
+      question: "",
     };
+  },
+  methods: {
+    handleGoto(position) {
+      this.position = position;
+    },
+    handleQuestion(question) {
+      this.question = question;
+    },
   },
 };
 </script>
